@@ -1,6 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
+{% load static %}
+{% include "header.html" %}
+<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}"/>
     <title>Home</title>
+<div class="postContainer">
+{% for post in posts%}
+    <div class = "post">
+        <div class="post__title">{{post.title}}{{post.user.email}}</div>
+        <div class="post__content">{{ post.content }}</div>
+        {{post.comments.comment}}
+    </div>
+{% endfor %}
+</div>
+<!--
+{% for comment in comments%}
+    {{ comment.content }}
+{% endfor %}
+-->
 {% endblock %}
 
 

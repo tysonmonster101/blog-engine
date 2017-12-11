@@ -1,0 +1,26 @@
+.postContainer
+{
+    display:grid;
+    margin:auto;
+    grid-template:1fr/ 1fr 1fr 1fr;
+}
+.post
+{
+    background-color: blue;
+    height: 100%;
+    width:100%;
+    margin:16px;
+    padding:16px;
+    border-radius: 10px;
+    color:red;
+}
+.post__title
+{
+    background-color: gray;
+    border-radius: 10px;
+}
+.post__content
+{
+    background-color:black;
+    padding:24px;
+}
