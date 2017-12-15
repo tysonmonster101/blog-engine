@@ -1,0 +1,17 @@
+.detail
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.detail__title
+{
+    align-self: center;
+}
+.detail__post
+{
+    margin:32px;
+    align-self: center;
+}

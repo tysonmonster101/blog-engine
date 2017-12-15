@@ -24,3 +24,9 @@
     background-color:black;
     padding:24px;
 }
+.postLink
+{
+/*    text-decoration-line: none;*/
+    text-decoration: none;
+    color:red;
+}

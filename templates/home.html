@@ -6,11 +6,15 @@
     <title>Home</title>
 <div class="postContainer">
 {% for post in posts%}
-    <div class = "post">
-        <div class="post__title">{{post.title}}{{post.user.email}}</div>
-        <div class="post__content">{{ post.content }}</div>
-        {{post.comments.comment}}
+    <a href="/post/{{post.id}}">
+    <div class="postLink">
+        <div class = "post">
+            <div class="post__title">{{post.title}}{{post.user.email}}</div>
+            <div class="post__content">{{ post.content }}</div>
+            {{post.comments.comment}}
+        </div>
     </div>
+    </a>
 {% endfor %}
 </div>
 <!--
