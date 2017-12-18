@@ -17,13 +17,14 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from accounts.views import signup
-from blog.views import home, post_detail
+from blog.views import home, post_detail, create_post
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/', auth_views.login, {"template_name": "login.html"}),
     url(r'^logout/', auth_views.logout),
     url(r'^post/(?P<pk>\d)/$', post_detail),
+    url(r'^create-post/', create_post),
     url(r'^$', home),
     url(r'^sign-up/', signup)
 ]
