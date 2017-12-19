@@ -7,5 +7,20 @@
 <div class="detail">
     <div class="detail__title">{{post.title}} - {{post.user}}</div>
 <div class="detail__post">{{post.content}}</div>
+        {% if user.is_authenticated %}
+    <form method="post"> {% csrf_token %}
+        <textarea name="content"></textarea>
+    <button action="submit">Create Comment</button>
+    </form>
+    {% endif %}
+    <div class="comments">
+    {% for comment in comments %}
+        <div class="comment">
+            <div>{{ comment.user }}</div>
+            <div>{{ comment.content }}</div>
+        </div>
+    {% endfor %}
+    </div>
+
 </div>
 {% endblock %}

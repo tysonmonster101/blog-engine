@@ -15,3 +15,18 @@
     margin:32px;
     align-self: center;
 }
+.comments
+{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    flex-direction: column;
+    width:80%;
+}
+.comment
+{
+    align-self: center;
+    color:red;
+    border:1px solid;
+    width:50%;
+}

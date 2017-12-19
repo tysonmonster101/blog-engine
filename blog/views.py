@@ -40,4 +40,4 @@ def post_detail(request, pk):
             form.save()
             return redirect('/post/' + str(pk))
     comments = Comment.objects.filter(post=post)
-    return render(request, 'post-detail.html', {'post': post, 'comments': comments})
+    return render(request, 'post-detail.html', {'post': post, 'comments': comments, 'user': request.user})
