@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import user_passes_test
 # Create your views here.
 
-from blog.forms import PostForm
+from blog.forms import PostForm, CommentForm
 from blog.models import Post, Comment
 
 
@@ -25,7 +25,7 @@ def create_post(request):
         form = PostForm(request.POST, user=request.user)
         if form.is_valid():
             form.save()
-            return redirect('home/')
+            return redirect('/')
     else:
         form = PostForm()
     return render(request, 'create-post.html', {'form': form})
@@ -33,4 +33,11 @@ def create_post(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, id=pk)
-    return render(request, 'post-detail.html', {'post': post})
+    if request.method == "POST":
+        form = CommentForm(request.POST, user=request.user, post=post)
+        print(form.is_valid())
+        if form.is_valid():
+            form.save()
+            return redirect('/post/' + str(pk))
+    comments = Comment.objects.filter(post=post)
+    return render(request, 'post-detail.html', {'post': post, 'comments': comments})
