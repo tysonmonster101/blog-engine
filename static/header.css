@@ -3,7 +3,7 @@ body {
 }
 .header {
     height: 80px;
-    background: blue;
+    background-color: black;
     display: flex;
 }
 
